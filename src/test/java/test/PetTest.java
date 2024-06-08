@@ -17,9 +17,9 @@ public class PetTest {
 
 
     private final List<String> statuses = List.of("available", "pending", "sold");
-    TestTemplate template = TestTemplate.create();
-    Faker faker = template.getFaker();
-    PetEndpoints petEndpoints = new PetEndpoints();
+    private final TestTemplate template = TestTemplate.create();
+    private final Faker faker = template.getFaker();
+    private final PetEndpoints petEndpoints = new PetEndpoints();
 
     @Test
     public void createPet() {

@@ -23,9 +23,9 @@ public class UserTest {
     private static final String CODE = "code";
     private static final String TYPE = "type";
 
-    UserEndpoints userEndpoints = new UserEndpoints();
-    Faker faker = new Faker();
-    TestTemplate template = TestTemplate.create();
+    private final UserEndpoints userEndpoints = new UserEndpoints();
+    private final Faker faker = new Faker();
+    private final TestTemplate template = TestTemplate.create();
 
     @Test(priority = 1)
     public void testCreateUser() {
