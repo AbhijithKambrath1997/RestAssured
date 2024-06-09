@@ -1,0 +1,67 @@
+
+given()
+ -> contentType
+ -> cookies
+ -> auth
+ -> params(path and query)
+ -> headers
+
+when()
+ -> get
+ -> put
+ -> post
+ -> delete
+
+then()
+ -> statusCode
+ -> response
+ -> headers
+ -> cookies
+ -> response body
+
+JSON validation
+
+-> Added assertion in then() condition
+-> Get response from when() condition and assert field
+
+File Upload
+-> For multiple files multipart key is files and pass file one by one
+
+JSON schema Validation
+-> then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema.json"))
+
+XML schema Validation
+-> then().assertThat().body(RestAssuredMatchers.matchesXsd("xmlSchema.xsd"));
+
+Serialization   => Converting a Java object to a JSON or XML string using body().
+Deserialization => Converting a JSON or XML string to a Java object using as().
+
+->POJO -> JSON
+    ObjectMapper objectMapper = new ObjectMapper();
+    String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(pojoClass);
+
+-> JSON -> POJO
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.readValue(json, POJO.class)
+
+Authentication
+    User is valid or not
+->Basic
+    auth().basic("userName", "password")
+->Digest
+    auth().digest("userName", "password")
+->Preemptive
+    auth().preemptive().basic("userName", "password")
+->Bearer
+    Pass in Header
+    headers("Authorization", "Bearer" + "token"")
+->Oauth1
+    auth().oauth("consumerKey", "consumerSecret", "accessToken", "secretToken")
+->Oauth2
+    auth().oauth2("token")
+->ApiKey
+    Pass in Query Parameter
+    queryParam("ApiKey", "ApiValue")
+
+Authorisation
+    Permissions and Access of User

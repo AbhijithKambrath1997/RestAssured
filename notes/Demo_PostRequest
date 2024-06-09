@@ -1,0 +1,11 @@
+-> HashMap
+    Build hashmap using java and publish
+-> Org.Json
+    Build JSONObject
+    Publish by converting into String [jsonObject.toString() method]
+-> POJO
+    Create Pojo class and set getters and setters
+    Build Pojo Node from Test Class and publish
+-> Json File
+    Read Json Using File and FileReader
+    Convert to json by JSONTokener & JSONObject and publish
