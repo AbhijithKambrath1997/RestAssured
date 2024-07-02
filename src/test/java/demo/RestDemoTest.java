@@ -101,7 +101,7 @@ public class RestDemoTest {
     public void deleteUser() throws FileNotFoundException {
 
         //Data creation from File
-        File file = new File("src/test/resources/body.json");
+        File file = new File("src/test/resources/demoData/body.json");
         FileReader fileReader = new FileReader(file);
         JSONTokener jsonTokener = new JSONTokener(fileReader);
         JSONObject jsonObject = new JSONObject(jsonTokener);
@@ -211,7 +211,7 @@ public class RestDemoTest {
     @Test
     public void fileUpload() {
         String filename = "SampleImage.png";
-        File file = new File("src/test/resources/SampleImage.png");
+        File file = new File("src/test/resources/demoData/SampleImage.png");
 
         RestAssured
                 .given()
@@ -234,7 +234,8 @@ public class RestDemoTest {
                 .then()
                 .statusCode(200)
                 .body("page", equalTo(2))
-                .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema.json"))
+                .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(
+                        "demoData/schema.json"))
                 .log()
                 .all();
     }

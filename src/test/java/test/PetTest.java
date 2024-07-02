@@ -15,7 +15,6 @@ import java.util.List;
 
 public class PetTest {
 
-
     private final List<String> statuses = List.of("available", "pending", "sold");
     private final TestTemplate template = TestTemplate.create();
     private final Faker faker = template.getFaker();

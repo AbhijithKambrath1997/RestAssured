@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import utilities.FileReaders.PropertyReader;
+import utilities.fileReaders.PropertyReader;
 
 import java.util.Properties;
 

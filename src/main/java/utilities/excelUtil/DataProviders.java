@@ -1,4 +1,4 @@
-package utilities.excelUtilities;
+package utilities.excelUtil;
 
 import org.testng.annotations.DataProvider;
 
