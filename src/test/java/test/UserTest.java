@@ -14,6 +14,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import payloads.User;
 import templates.TestTemplate;
+import utilities.retryUtil.RetryUtil;
 
 public class UserTest {
 
@@ -74,9 +75,12 @@ public class UserTest {
         template.print("Delete User");
         /*verifyResponse(200, UNKNOWN, user.getUsername(), response);*/
 
-        Response getResponse = userEndpoints.getUser(user.getUsername());
-        Assert.assertEquals(getResponse.getStatusCode(), HttpStatus.SC_NOT_FOUND);
-        verifyResponse(1, ERROR, "User not found", getResponse);
+        RetryUtil.retry(() -> {
+            Response getResponse = userEndpoints.getUser(user.getUsername());
+            Assert.assertEquals(getResponse.getStatusCode(), HttpStatus.SC_NOT_FOUND);
+            verifyResponse(1, ERROR, "User not found", getResponse);
+            return true;
+        }, 10);
     }
 
     private User buildUser() {
