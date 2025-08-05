@@ -22,6 +22,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
     - uses: actions/checkout@v4
@@ -43,6 +45,9 @@ jobs:
       with:
         name: test-report
         path: target/surefire-reports/
+
+    - name: Update dependency graph
+      uses: advanced-security/maven-dependency-submission-action@v4
 
   publish-job:
     runs-on: ubuntu-latest
