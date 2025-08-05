@@ -47,6 +47,9 @@ jobs:
         name: test-report
         path: target/surefire-reports/
 
+    # Remove this block if not needed:
+    - name: Update dependency graph
+      uses: advanced-security/maven-dependency-submission-action@v4
 
   publish-job:
     runs-on: ubuntu-latest
